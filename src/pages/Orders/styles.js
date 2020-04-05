@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
 import Constants from "expo-constants";
-
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -21,11 +20,23 @@ export default StyleSheet.create({
     color: "#fff",
     fontSize: 18,
   },
+  order: {
+    backgroundColor: "#fda430",
+    alignItems: "center",
+    justifyContent: "center",
+    height: 70,
+    flex: 1,
+    margin: 4,
+    borderRadius: 5,
+    paddingHorizontal: 10,
+  },
+  orderText: {
+    color: "#000",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+
   newOrder: {
-    marginHorizontal: 90,
-    marginTop: 30,
-    paddingHorizontal: 30,
-    paddingVertical: 20,
     backgroundColor: "#005390",
     borderRadius: 5,
     textAlign: "center",

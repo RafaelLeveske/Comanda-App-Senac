@@ -4,13 +4,27 @@ import {
   KeyboardAvoidingView,
   Text,
   TouchableOpacity,
+  FlatList,
 } from "react-native";
 
 import styles from "./styles";
-import { Form, FormInput } from "./stylesComponents";
+import { Form, FormInput } from "./styledComponent";
 
 export default function Requests({ route }) {
   const { table } = route.params;
+
+  const dataList = [
+    {
+      pedido: {
+        ficha: "13",
+        produto: "Salada Cesar",
+        numCozinha: "1",
+        observacao: "Sem cebola. Adicionar azeite",
+        valor: "39.9",
+      },
+    },
+  ];
+
   return (
     <KeyboardAvoidingView style={styles.container}>
       <View style={styles.header}>
@@ -25,6 +39,8 @@ export default function Requests({ route }) {
           autoCapitalize="none"
           placeholder="Ficha"
           returnKeyType="next"
+          value={dataList[0].pedido.ficha}
+          disabled
         />
         <FormInput
           label="Nº Cozinha"
@@ -32,6 +48,7 @@ export default function Requests({ route }) {
           autoCapitalize="none"
           placeholder="Nº Cozinha"
           returnKeyType="next"
+          value={dataList[0].pedido.numCozinha}
         />
         <FormInput
           label="Produto"
@@ -39,6 +56,7 @@ export default function Requests({ route }) {
           autoCapitalize="none"
           placeholder="Produto"
           returnKeyType="next"
+          value={dataList[0].pedido.produto}
         />
         <FormInput
           label="Observação"
@@ -46,11 +64,19 @@ export default function Requests({ route }) {
           autoCapitalize="none"
           placeholder="Observação"
           returnKeyType="next"
+          value={dataList[0].pedido.observacao}
         />
-
-        <TouchableOpacity style={styles.newOrder} onPress={() => {}}>
-          <Text style={styles.headerText}>Lançar Pedido</Text>
-        </TouchableOpacity>
+        <FormInput
+          label="Valor"
+          autoCorrect={false}
+          autoCapitalize="none"
+          placeholder="Valor"
+          returnKeyType="next"
+          value={Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(dataList[0].pedido.valor)}
+        />
       </Form>
     </KeyboardAvoidingView>
   );
