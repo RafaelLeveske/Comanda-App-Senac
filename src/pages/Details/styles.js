@@ -22,7 +22,7 @@ export default StyleSheet.create({
     fontSize: 18,
   },
   newOrder: {
-    marginHorizontal: 90,
+    marginHorizontal: 100,
     marginTop: 30,
     paddingHorizontal: 30,
     paddingVertical: 20,

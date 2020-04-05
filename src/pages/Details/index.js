@@ -1,21 +1,29 @@
-import React, { useRef } from "react";
+import React from "react";
 import {
   View,
   KeyboardAvoidingView,
   Text,
   TouchableOpacity,
+  FlatList,
 } from "react-native";
 
 import styles from "./styles";
-import { Form, FormInput } from "./stylesComponents";
+import { Form, FormInput } from "./styledComponent";
 
 export default function Requests({ route }) {
   const { table } = route.params;
 
-  const fichaRef = useRef();
-  const cozinhaRef = useRef();
-  const produtoRef = useRef();
-  const obsRef = useRef();
+  const dataList = [
+    {
+      pedido: {
+        ficha: "13",
+        produto: "Salada Cesar",
+        numCozinha: "1",
+        observacao: "Sem cebola. Adicionar azeite",
+        valor: "39.9",
+      },
+    },
+  ];
 
   return (
     <KeyboardAvoidingView style={styles.container}>
@@ -31,7 +39,8 @@ export default function Requests({ route }) {
           autoCapitalize="none"
           placeholder="Ficha"
           returnKeyType="next"
-          onSubmitEditing={() => cozinhaRef.current.focus()}
+          value={dataList[0].pedido.ficha}
+          disabled
         />
         <FormInput
           label="Nº Cozinha"
@@ -39,8 +48,7 @@ export default function Requests({ route }) {
           autoCapitalize="none"
           placeholder="Nº Cozinha"
           returnKeyType="next"
-          ref={cozinhaRef}
-          onSubmitEditing={() => produtoRef.current.focus()}
+          value={dataList[0].pedido.numCozinha}
         />
         <FormInput
           label="Produto"
@@ -48,8 +56,7 @@ export default function Requests({ route }) {
           autoCapitalize="none"
           placeholder="Produto"
           returnKeyType="next"
-          ref={produtoRef}
-          onSubmitEditing={() => obsRef.current.focus()}
+          value={dataList[0].pedido.produto}
         />
         <FormInput
           label="Observação"
@@ -57,13 +64,19 @@ export default function Requests({ route }) {
           autoCapitalize="none"
           placeholder="Observação"
           returnKeyType="next"
-          ref={obsRef}
-          onSubmitEditing={() => {}}
+          value={dataList[0].pedido.observacao}
         />
-
-        <TouchableOpacity style={styles.newOrder} onPress={() => {}}>
-          <Text style={styles.headerText}>Lançar Pedido</Text>
-        </TouchableOpacity>
+        <FormInput
+          label="Valor"
+          autoCorrect={false}
+          autoCapitalize="none"
+          placeholder="Valor"
+          returnKeyType="next"
+          value={Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(dataList[0].pedido.valor)}
+        />
       </Form>
     </KeyboardAvoidingView>
   );

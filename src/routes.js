@@ -1,23 +1,63 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-const AppStack = createStackNavigator();
+import Logon from "./pages/Logon";
+import Tables from "./pages/Tables";
+import Orders from "./pages/Orders";
+import Requests from "./pages/Requests";
+import Details from "./pages/Details";
 
-import Logon from './pages/Logon';
-import Tables from './pages/Tables';
-import Commands from './pages/Commands';
-import Requests from './pages/Requests';
+const Stack = createStackNavigator();
 
 export default function Routes() {
-    return (
-        <NavigationContainer>
-            <AppStack.Navigator screenOptions={{headerShown:false}}>
-                <AppStack.Screen name = "Logon" component={Logon} />
-                <AppStack.Screen name = "Tables" component={Tables} />
-                <AppStack.Screen name = "Commands" component={Commands} />
-                <AppStack.Screen name = "Requests" component={Requests} />
-            </AppStack.Navigator>
-        </NavigationContainer>
-    );
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerTransparent: true,
+          headerTintColor: "#333",
+          headerLeftContainerStyle: {
+            marginLeft: 20,
+          },
+        }}
+      >
+        <Stack.Screen
+          name="Logon"
+          component={Logon}
+          options={{
+            title: "",
+          }}
+        />
+        <Stack.Screen
+          name="Tables"
+          component={Tables}
+          options={{
+            title: "Mesas",
+          }}
+        />
+        <Stack.Screen
+          name="Orders"
+          component={Orders}
+          options={{
+            title: "Comandas",
+          }}
+        />
+        <Stack.Screen
+          name="Requests"
+          component={Requests}
+          options={{
+            title: "Pedido",
+          }}
+        />
+        <Stack.Screen
+          name="Details"
+          component={Details}
+          options={{
+            title: "Detalhes do pedido",
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
