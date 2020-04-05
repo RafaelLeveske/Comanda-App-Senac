@@ -7,7 +7,7 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     header: {
-        marginBottom: 100,
+        marginBottom: 70,
         backgroundColor: '#005390',
         width: 410,
         height: 50,
