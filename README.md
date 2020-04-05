@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="./src/assets/icon.png" alt="Project logo"></a>
+ <img width=200px height=200px src="./src/assets/logo.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Comanda FS - Senac DF</h3>
@@ -14,7 +14,7 @@
 
 ---
 
-<p align="center">🧐 Aplicação mobile desenvolvido em React Native para consumir a API REST de Comanda Eletrônica desenvolvida pela Fábrica de Software do Senac - DF.
+<p align="center"> Aplicação mobile desenvolvido em React Native para consumir a API REST de Comanda Eletrônica desenvolvida pela Fábrica de Software do Senac - DF.
     <br>
 </p>
 
@@ -44,25 +44,33 @@ Com o Expo você não precisa de um emulador na sua máquina para visualzar o c�
 
 ### Instalação
 
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
+Para inicializar o arquivo `package.json` e instalar todas as dependências digite os comandos abaixo
 
 ```
-Give the example
+npm install
 ```
 
-And repeat
+ou se preferir
 
 ```
-until finished
+yarn install
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
+### Inicializando o projeto
+
+Basta rodar o comando abaixo e uma nova aba com a aplicação irá abrir no seu navegador
+
+```
+expo start
+```
+
+O comando irá abrir uma nova aba no seu navegador similar a imagem abaixo. Basta escanear o QR code coma a câmera do seu celular que a aplicação irá carregar no seu aparelho
+
+![expoPage](https://user-images.githubusercontent.com/37941820/78511571-188c9700-7774-11ea-83bb-6a026b66eead.png)
 
 ## 🎈 Uso <a name="usage"></a>
 
-Add notes about how to use the system.
+Atualmente a aplicação mobile conta apenas com as telas, de acordo com a prototipação desenvolvida. É possivel navegar entre as páginas, mas ainda não há nenhuma interação com a API REST. Por esse motivo, ainda não é necessário o login e senha para acessar a aplicação.
 
 ## ⛏️ Ferramentas <a name = "built_using"></a>
 
